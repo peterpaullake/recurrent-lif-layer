@@ -1,0 +1,5 @@
+matplotlib
+numpy
+torch==2.0.1 # fix PyTorch version to play well with installed version of CUDA Toolkit
+torchvision
+tqdm

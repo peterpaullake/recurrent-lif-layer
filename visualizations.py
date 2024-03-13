@@ -202,6 +202,8 @@ class RegimeComparisonVisualization(Visualization):
         }
         for ax, regime in zip(axes, experiment.regimes):
             ax.set_title(regime_titles[regime])
+        axes[-1].set_xlabel(r'Time [$\tau$\textsubscript{s}]')
+        axes[1].set_ylabel(r'Membrane potential [a.u.]')
 
         fig.tight_layout()
         return fig
