@@ -88,7 +88,7 @@ The forward pass calculates the final $\mathbf{T}$ and $\mathbf{S}$ vectors give
   \caption{Calculates the output spikes of a fully connected layer of LIF neurons with recurrent connections.}
   \label{forward-pass-algorithm}
   \begin{algorithmic}
-    \Procedure{\texttt{RecurrentLIFLayerForward}}{$\mathbf{t},\mathbf{s},\mathbf{w}^f,\mathbf{w}^r$}
+    \Procedure{RecurrentLIFLayerForward}{$\mathbf{t},\mathbf{s},\mathbf{w}^f,\mathbf{w}^r$}
     \State $\mathbf{T} \gets \emptyList$ \Comment{Output spike times}
     \State $\mathbf{S} \gets \emptyList$ \Comment{Output spike neuron ids}
     \State $\mathbf{T}_{\text{prev}} \gets [\underbrace{-\infty, -\infty, \ldots, -\infty}_{\text{$N_{\text{post}}$ many}}]^\top$ \Comment{Most recent spike time of each neuron}
@@ -136,7 +136,7 @@ Todo: write this section.
   \centering
   \graphicspath{{../visualizations/single-neuron-impulse-response/report}}
   \input{../visualizations/single-neuron-impulse-response/report/single-neuron-impulse-response.pgf}
-  \caption{Number of emitted spikes of a LIF neuron in response to a single spike as a function of the feedforward weight $w^r$ and the recurrent weight $w^f$.}
+  \caption{Number of emitted spikes of a LIF neuron in response to a single input spike as a function of the feedforward weight $w^r$ and the recurrent weight $w^f$.}
   \label{impulse-response-figure}
 \end{figure}
 
@@ -144,8 +144,8 @@ Todo: write this section.
 \begin{figure}[H]
   \centering
   \input{../visualizations/regime-comparison/report/regime-comparison.pgf}
-  \caption{Membrane potentials of a 3-neuron SNN layer in response to the same stimulus for three different regimes. a) Neurons are allowed to fire only once, and the timing of the output spikes is not affected by previous output spikes. b) Neurons are allowed to fire arbitrarily many times, and the timing of the output spikes is not affected by previous output spikes. %% XXX up to a user-specified maximum
-    c) Neurons are allowed to fire arbitrarily many times, and the output spikes are fed back into the synapses. In this case, the recurrent weights are highly inhibitory, which causes the first-firing neuron (blue) to inhibit the other neurons (red and green) from firing.}
+  \caption{Membrane potentials of a 3-neuron recurrent LIF layer in response to the same stimulus for three different regimes. \textbf{a)} Single-spike without recurrence: neurons are allowed to fire only once, and the timing of the output spikes is not affected by previous output spikes. \textbf{b)} Multi-spike without recurrence: neurons are allowed to fire arbitrarily many times, and the timing of the output spikes is not affected by previous output spikes. %% XXX up to a user-specified maximum
+    \textbf{c)} Multi-spike with recurrence: neurons are allowed to fire arbitrarily many times, and the output spikes are fed back into the synapses. In this case, the recurrent weights are highly inhibitory, which causes the first-firing neuron (blue) to inhibit the other neurons (red and green) from firing.}
   \label{regime-comparison-figure}
 \end{figure}
 
